@@ -1,0 +1,31 @@
+{% extends 'basicapp/base.html' %}
+
+{% block body_block %}
+
+    <h2><span class="label label-default">List of schools</span></h2>
+
+    <div class="panel panel-info " style="margin-top: 3%;">
+
+        {% for school in schools %}
+            <div class="well well-lg">
+                <em><b><a href="{{school.id}}">{{school.name}}</a></b></em>
+            </div>
+        {% endfor %}
+    
+    </div>
+
+    <div>
+        <a href="{% url 'basicapp:create' %}" class="btn btn-primary"> 
+            CREATE SCHOOL
+        </a>
+
+
+        <a href="{% url 'basicapp:create_student' %}" class="btn btn-success">
+            ADD STUDENT 
+        </a>   
+
+    </div>
+
+
+{% endblock %}
+

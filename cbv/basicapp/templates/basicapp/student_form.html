@@ -1,0 +1,15 @@
+{% extends 'basicapp/base.html' %}
+{% block body_block %}
+
+<div class="container">
+    <div class="jumbotron">
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <input type="submit" class="btn btn-primary" value="ADD">
+    </form>
+</div>
+</div>
+
+{% endblock %}

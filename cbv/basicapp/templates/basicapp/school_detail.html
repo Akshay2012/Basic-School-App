@@ -1,0 +1,43 @@
+{% extends 'basicapp/base.html' %}
+
+{% block body_block %}
+    <div class="jumbotron">
+        
+
+        <div class="panel panel-info">
+
+            <div class="panel-footer">
+               Welcome to <strong>{{school_detail.name}}</strong>
+            </div>    
+            <div class="panel-footer">
+                <b>Principal</b>: {{ school_detail.principal }}
+            </div>    
+            <div class="panel-footer">
+                <b>Location</b>: {{school_detail.location }} 
+             </div>
+
+       </div>
+        
+        <div class="alert alert-info">STUDENTS </div>
+        
+        <ul class="list-group">
+            {% for student in school_detail.students.all %}
+            <li class="list-group-item">
+             
+                {{student.name}} who is {{student.age}} years old.
+                <a class="btn btn-danger" href="{% url 'basicapp:delete_student' pk=student.pk%}"> DELETE STUDENT</a>
+            
+            </li>
+            {%endfor%}
+        </ul>
+        
+
+
+    </div>
+
+        <a class="btn btn-warning" href="{% url 'basicapp:update' pk=school_detail.pk%}"> UPDATE SCHOOL </a>
+
+        <a class="btn btn-danger" href="{% url 'basicapp:delete' pk=school_detail.pk%}"> DELETE SCHOOL </a>
+     
+        
+{% endblock %}
